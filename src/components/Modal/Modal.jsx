@@ -19,11 +19,11 @@ class Modal extends Component {
     } 
 
     render(){
-        const {largeImage} = this.props;
+        const {alt,largeImage} = this.props;
         return(
             <div className={css.Overlay}>
                 <div className={css.Modal}>
-                    <img src={largeImage}/>
+                    <img alt ={alt} src={largeImage}/>
                 </div>
             </div>
         )

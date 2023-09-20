@@ -30,7 +30,7 @@ class ImageGalleryItem extends Component {
                 alt={alt}
                 onClick={this.handleOpenModal}
                 />
-                {isModal &&(<Modal click={this.handleCloseModal} largeImage={largeImage}/>) }
+                {isModal &&(<Modal click={this.handleCloseModal} alt={alt} largeImage={largeImage}/>) }
             </li>
             </>
         );
