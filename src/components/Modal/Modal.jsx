@@ -24,7 +24,7 @@ class Modal extends Component {
         return(
             <div className={css.Overlay}>
                 <div className={css.Modal}>
-                    <img src={largeImage}></img>
+                    <img src={largeImage}/>
                 </div>
             </div>
         )
