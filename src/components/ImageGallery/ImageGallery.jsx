@@ -4,6 +4,9 @@ import React,{Component} from "react"
 import {api}  from '../service/api';
 import Button from "../Button/Button"
 import Loading from "../Loading/Loading";
+import { Audio } from 'react-loader-spinner'
+
+
 
 class ImageGallery extends Component {
     state ={
@@ -13,6 +16,9 @@ class ImageGallery extends Component {
         button:false,
         noData:false,
     }
+
+
+ 
     
     componentDidUpdate(prevProps,prevState){
         const {value,page} = this.props;
@@ -59,7 +65,15 @@ class ImageGallery extends Component {
         return (
             <div>
                 <ul className={css.ImageGallery}>
-                {isLoading &&  <Loading />}
+                {isLoading && <Audio
+            height="80"
+            width="80"
+            radius="9"
+            color="green"
+            ariaLabel="loading"
+            wrapperStyle
+            wrapperClass
+          />}
                 {noData && (<h1>No data found</h1>)}
             {cards && (cards.map(({id,tags,webformatURL,largeImageURL}) => (
                 <ImageGalleryItem 
