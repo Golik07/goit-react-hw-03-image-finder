@@ -3,7 +3,6 @@ import css from "./ImageGallery.module.css"
 import React,{Component} from "react"
 import {api}  from '../service/api';
 import Button from "../Button/Button"
-import Loading from "../Loading/Loading";
 import { Audio } from 'react-loader-spinner'
 
 
@@ -17,8 +16,6 @@ class ImageGallery extends Component {
         noData:false,
     }
 
-
- 
     
     componentDidUpdate(prevProps,prevState){
         const {value,page} = this.props;
