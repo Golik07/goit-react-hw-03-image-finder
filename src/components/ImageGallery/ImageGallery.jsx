@@ -21,18 +21,17 @@ class ImageGallery extends Component {
         const {value,page} = this.props;
         
         if(prevProps.value !== value){
-            console.log()
             this.setState({
                 isLoading:true,
                 noData:false,
                 cards:[],
                 button:false,
                 page:1,})
+
             api(value,page).then(data  => {
                 if(data.total === 0){
                   return  this.setState( {noData:true,button:false,cards:[],isLoading:false,});
                 }
-                console.log(data)
                 this.setState({
                     isLoading:false,
                     cards:data.hits,
@@ -47,6 +46,7 @@ class ImageGallery extends Component {
         const {value} = this.props;
 
         const nextPage = page + 1;
+
         api(value,nextPage).then(({hits}) => this.setState(prevState => ({
             cards:[...prevState.cards,...hits],
             page:nextPage,
@@ -71,7 +71,7 @@ class ImageGallery extends Component {
             wrapperStyle
             wrapperClass
           />}
-                {noData && (<h1>No data found</h1>)}
+            {noData && (<h1>No data found</h1>)}
             {cards && (cards.map(({id,tags,webformatURL,largeImageURL}) => (
                 <ImageGalleryItem 
                 key={id}
